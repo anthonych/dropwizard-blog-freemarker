@@ -19,3 +19,9 @@ database:
   minSize: 8
   maxSize: 32
   checkConnectionWhileIdle: false
+logging:
+  level: INFO
+  loggers:
+    io.dropwizard: INFO
+  appenders:
+    - type: console

@@ -10,8 +10,8 @@ public class ArticleView extends View {
 
     final Article article;
 
-    public ArticleView(Article article) {
-        super("view-article.ftl");
+    public ArticleView(String template, Article article) {
+        super(template);
         this.article = article;
     }
 

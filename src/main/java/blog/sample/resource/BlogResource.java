@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 /**
  * Created by anthonychen on 9/11/14.
  */
+
 @Path("/")
 @Produces(MediaType.APPLICATION_JSON)
 public class BlogResource {
