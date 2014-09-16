@@ -8,7 +8,6 @@ import blog.sample.view.Template;
 import com.codahale.metrics.annotation.Timed;
 import io.dropwizard.hibernate.UnitOfWork;
 
-import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.sql.Timestamp;
@@ -57,13 +56,27 @@ public class ArticleResource {
 
     @POST
     @UnitOfWork
-    @Path("/save")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_HTML)
-    public ArticleView saveArticle(@Valid Article article) {
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Article saveArticle(String headline) {
+
+        Article article = new Article();
+        article.setHeadline(headline);
         article.setPostDate(new Timestamp(new Date().getTime()));
-        //return new ArticleView(Template.VIEW_ARTICLE, articleDAO.saveArticle(article));
-        return new ArticleView(Template.VIEW_ARTICLE, article);
+
+        return articleDAO.saveArticle(article);
+    }
+
+
+    @POST
+    @UnitOfWork
+    @Path("/save")
+    @Consumes(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Article saveArticle(Article article) {
+        article.setPostDate(new Timestamp(new Date().getTime()));
+
+        return articleDAO.saveArticle(article);
     }
 
 

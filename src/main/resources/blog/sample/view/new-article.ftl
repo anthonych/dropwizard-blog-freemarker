@@ -15,7 +15,8 @@
                 <div class="control-group">
                     <label class="control-label" for="textinput">Headline</label>
                     <div class="controls">
-                        <input id="textinput" name="textinput" placeholder="blog post headline here" class="input-xlarge" required="" type="text">
+                        <input id="headline" name="headline" placeholder="blog post headline here" class="input-xlarge" required="" type="text"
+                                value="${article.headline}">
 
                     </div>
                 </div>
@@ -24,7 +25,7 @@
                 <div class="control-group">
                     <label class="control-label" for="textarea">Post</label>
                     <div class="controls">
-                        <textarea id="textarea" name="textarea">Blog post here</textarea>
+                        <textarea id="body" name="body" content="${article.body}"></textarea>
                     </div>
                 </div>
 
@@ -32,8 +33,8 @@
                 <div class="control-group">
                     <label class="control-label" for="button1"></label>
                     <div class="controls">
-                        <button id="button1" name="button1" class="btn btn-info">Save</button>
-                        <button id="button2" name="button2" class="btn btn-danger">Cancel</button>
+                        <button id="save" name="save" class="btn btn-info" type="submit">Save</button>
+                        <button id="reset" name="reset" class="btn btn-danger" type="reset">Reset</button>
                     </div>
                 </div>
 

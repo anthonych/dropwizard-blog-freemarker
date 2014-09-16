@@ -1,60 +1,70 @@
-package blog.sample.resource;
-
+package blog.sample.dao;
 
 import blog.sample.core.Article;
 import blog.sample.core.User;
-import blog.sample.dao.ArticleDAO;
-import io.dropwizard.testing.junit.ResourceTestRule;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.fest.assertions.api.Assertions.assertThat;
-import static org.mockito.Matchers.eq;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
-public class ArticleResourceTest {
+@SuppressWarnings("JpaQueryApiInspection")
+public class ArticleDAOTest {
 
-    private static ArticleDAO articleDAO = mock(ArticleDAO.class);
+    private SessionFactory sessionFactory;
+    private Session session;
+    private Query query;
+    private ArticleDAO articleDAO;
     private static final Article article1 = new Article();
     private static final Article article2 = new Article();
     private static final List<Article> articles = new ArrayList<Article>();
 
-    @Rule
-    public ResourceTestRule resource = ResourceTestRule.builder().addResource(
-            new ArticleResource(articleDAO)).build();
-
+    @SuppressWarnings("JpaQueryApiInspection")
     @Before
     public void setUp() throws Exception {
+        sessionFactory = mock(SessionFactory.class);
+        session = mock(Session.class);
+        query = mock(Query.class);
+
         createTestArticle(createTestUser());
-        // Reset dao will cause response status 204
-        //reset(articleDAO);
     }
 
     @Test
-    public void testGetArticle() throws Exception {
-        when(articleDAO.findById(eq("id1"))).thenReturn(article1);
-        assertThat(resource.client().resource("/article/api/id1").get(Article.class)).isEqualTo(article1);
-        verify(articleDAO).findById("id1");
+    public void testFindById() throws Exception {
+        articleDAO = new ArticleDAO(sessionFactory);
+        when(sessionFactory.getCurrentSession()).thenReturn(session);
+        when(session.get(Article.class, "id1")).thenReturn(article1);
+        Article actualArticle = articleDAO.findById("id1");
+        assertEquals(article1, actualArticle);
     }
 
     @Test
-    public void testGetAllArticles() throws Exception {
+    public void testFindAll() throws Exception {
+        articleDAO = new ArticleDAO(sessionFactory);
+        when(sessionFactory.getCurrentSession()).thenReturn(session);
+        when(session.getNamedQuery("Article.findAll")).thenReturn(query);
         articles.add(article1);
         articles.add(article2);
-        when(articleDAO.findAll()).thenReturn(articles);
-        assertThat(resource.client().resource("/article/api/all").get(List.class)).isNotNull();
-        verify(articleDAO).findAll();
+        when(query.list()).thenReturn(articles);
+
+        assertNotNull(articleDAO.findAll());
+        assertTrue(articleDAO.findAll().size() == 2);
     }
 
     @Test
     public void testSaveArticle() throws Exception {
-
-
+        articleDAO = new ArticleDAO(sessionFactory);
+        when(sessionFactory.getCurrentSession()).thenReturn(session);
+        Article actualArticle = articleDAO.saveArticle(article1);
+        assertEquals(article1, actualArticle);
     }
 
     private void createTestArticle(User author) {
@@ -81,5 +91,4 @@ public class ArticleResourceTest {
         author.setPassword("");
         return author;
     }
-
 }
