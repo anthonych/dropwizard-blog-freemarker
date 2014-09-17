@@ -26,7 +26,7 @@ public class ArticleResourceTest {
 
     @Rule
     public ResourceTestRule resource = ResourceTestRule.builder().addResource(
-            new ArticleResource(articleDAO)).build();
+            new ArticleResource(articleDAO, )).build();
 
     @Before
     public void setUp() throws Exception {

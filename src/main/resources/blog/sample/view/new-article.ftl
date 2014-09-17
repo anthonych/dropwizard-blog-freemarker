@@ -2,46 +2,58 @@
 <#import "layout.ftl" as layout>
 <@layout.mainLayout>
 
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        $('#save').click(function () {
+            var articleid = '';
+            $.ajax({
+                url: '/blog/article/save',
+                type: 'POST',
+                data: JSON.stringify($('#articleForm').serializeJSON()),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'text',
+                success: function (response) {
+                    articleid = response;
+                    alert("Save Successfully");
+                    // View article
+                    window.location.replace("/blog/article/view/" + response);
+                },
+                error: function (response) {
+                    alert("Error Occurred: " + response);
+                }
+            });
+        });
+    });
+    //]]>
+</script>
+
 <div class="row">
     <!-- Blog Post Content Column -->
     <div class="col-lg-8">
         <!-- Blog Post -->
-        <form class="form-horizontal" method="post" action="/blog/article/save">
-            <fieldset>
-                <!-- Form Name -->
-                <legend>Blog Post</legend>
+        <form id="articleForm" name="articleForm" role="form">
+            <!-- Form Name -->
+            <legend>Blog Post</legend>
 
-                <!-- Text input-->
-                <div class="control-group">
-                    <label class="control-label" for="textinput">Headline</label>
-                    <div class="controls">
-                        <input id="headline" name="headline" placeholder="blog post headline here" class="input-xlarge" required="" type="text"
-                                value="${article.headline}">
+            <!-- Text input-->
+            <div class="form-group">
+                <label for="headline">Headline</label>
+                <input type="text" class="form-control" id="headline" name="headline"
+                       placeholder="blog post headline here">
+            </div>
 
-                    </div>
-                </div>
+            <!-- Textarea -->
+            <div class="form-group">
+                <label for="body">Post</label>
+                <textarea class="form-control" id="body" name="body" rows="10"
+                          placeholder="blog post content here"></textarea>
+            </div>
 
-                <!-- Textarea -->
-                <div class="control-group">
-                    <label class="control-label" for="textarea">Post</label>
-                    <div class="controls">
-                        <textarea id="body" name="body" content="${article.body}"></textarea>
-                    </div>
-                </div>
-
-                <!-- Button (Double) -->
-                <div class="control-group">
-                    <label class="control-label" for="button1"></label>
-                    <div class="controls">
-                        <button id="save" name="save" class="btn btn-info" type="submit">Save</button>
-                        <button id="reset" name="reset" class="btn btn-danger" type="reset">Reset</button>
-                    </div>
-                </div>
-
-            </fieldset>
+            <button id="save" name="save" class="btn btn-info" type="button">Save</button>
         </form>
         <hr>
-       </div>
+    </div>
     <!-- Blog Sidebar Widgets Column -->
     <div class="col-md-4">
         <!-- Blog Search Well -->
@@ -89,13 +101,6 @@
                 </div>
             </div>
             <!-- /.row -->
-        </div>
-        <!-- Side Widget Well -->
-        <div class="well">
-            <h4>Side Widget Well</h4>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus
-                laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
         </div>
     </div>
 </div>
