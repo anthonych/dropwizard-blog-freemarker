@@ -68,7 +68,6 @@ public class ArticleResource {
         User author = userDAO.findById("id1");
         article.setPostDate(new Timestamp(new Date().getTime()));
         article.setAuthor(author);
-
         return articleDAO.saveArticle(article).getId();
     }
 
