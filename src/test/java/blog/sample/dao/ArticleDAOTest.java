@@ -16,7 +16,6 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@SuppressWarnings("JpaQueryApiInspection")
 public class ArticleDAOTest {
 
     private SessionFactory sessionFactory;
@@ -27,7 +26,6 @@ public class ArticleDAOTest {
     private static final Article article2 = new Article();
     private static final List<Article> articles = new ArrayList<Article>();
 
-    @SuppressWarnings("JpaQueryApiInspection")
     @Before
     public void setUp() throws Exception {
         sessionFactory = mock(SessionFactory.class);

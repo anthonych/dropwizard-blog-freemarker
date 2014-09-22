@@ -52,7 +52,7 @@ public class BlogApplication extends Application<BlogConfiguration> {
         );
 
         // Register resources, filters and healthchecks
-        environment.jersey().register(new BlogResource(configuration.getSiteName(), articleDAO));
+        environment.jersey().register(new BlogResource(articleDAO));
         environment.jersey().register(new ArticleResource(articleDAO, userDAO));
         environment.healthChecks().register("databaseHealthcheck", dbHealthCheck);
     }

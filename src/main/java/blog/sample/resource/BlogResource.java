@@ -18,11 +18,9 @@ import javax.ws.rs.core.MediaType;
 @Produces(MediaType.APPLICATION_JSON)
 public class BlogResource {
 
-    private String siteName;
     private ArticleDAO articleDAO;
 
-    public BlogResource(String siteName, ArticleDAO articleDAO) {
-        this.siteName = siteName;
+    public BlogResource(ArticleDAO articleDAO) {
         this.articleDAO = articleDAO;
     }
 
