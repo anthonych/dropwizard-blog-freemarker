@@ -17,7 +17,7 @@ public class Article {
     private String body;
     private Timestamp postDate;
     private Timestamp updateDate;
-    private User author;
+    private String author;
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -71,6 +71,16 @@ public class Article {
         this.updateDate = updateDate;
     }
 
+    @Basic
+    @Column(name = "author", nullable = true, insertable = true, updatable = true)
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,15 +105,5 @@ public class Article {
         result = 31 * result + (postDate != null ? postDate.hashCode() : 0);
         result = 31 * result + (updateDate != null ? updateDate.hashCode() : 0);
         return result;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "author", referencedColumnName = "id")
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
     }
 }

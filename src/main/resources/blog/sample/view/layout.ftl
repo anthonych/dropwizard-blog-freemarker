@@ -1,4 +1,4 @@
-<#macro mainLayout>
+<#macro mainLayout header="">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +32,7 @@
     <![endif]-->
 </head>
 <body>
+
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -61,18 +62,12 @@
                 <li><a href="#about">About</a></li>
             </ul>
         </div>
-        <!--/.nav-collapse -->
     </div>
 </div>
-
+${header}
 <div id="container" class="container">
     <#nested/>
 </div>
-
-<!-- Bootstrap core JavaScript
-    ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-
 </body>
 </html>
 </#macro>

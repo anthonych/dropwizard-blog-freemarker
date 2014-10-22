@@ -1,9 +1,7 @@
 package blog.sample.resource;
 
 import blog.sample.core.Article;
-import blog.sample.core.User;
 import blog.sample.dao.ArticleDAO;
-import blog.sample.dao.UserDAO;
 import blog.sample.view.ArticleListView;
 import blog.sample.view.ArticleView;
 import blog.sample.view.Template;
@@ -25,11 +23,9 @@ import java.util.List;
 public class ArticleResource {
 
     private ArticleDAO articleDAO;
-    private UserDAO userDAO;
 
-    public ArticleResource(ArticleDAO articleDAO, UserDAO userDAO) {
+    public ArticleResource(ArticleDAO articleDAO) {
         this.articleDAO = articleDAO;
-        this.userDAO = userDAO;
     }
 
     @GET
@@ -65,9 +61,7 @@ public class ArticleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public String saveArticle(@Valid Article article) {
-        User author = userDAO.findById("id1");
         article.setPostDate(new Timestamp(new Date().getTime()));
-        article.setAuthor(author);
         return articleDAO.saveArticle(article).getId();
     }
 

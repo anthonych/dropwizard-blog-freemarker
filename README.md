@@ -1,7 +1,7 @@
 dropwizard-blog-freemarker
 ==========================
 
-A Dropwizard blog example with:
- - Basic CRUD functions demonstration . 
+A blog example based on:
+ - Dropwizard microservice framework.
  - Freemarker as view template.
- - Hibernate as database layer technology. 
+ - Hibernate as database layer technology.

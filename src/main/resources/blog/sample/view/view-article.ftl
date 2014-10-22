@@ -10,7 +10,7 @@
         <h1>${article.headline}</h1>
         <!-- Author -->
         <p class="lead">
-            by <a href="#">${article.author.name}</a>
+            by <a href="#">${article.author}</a>
         </p>
         <hr>
         <!-- Date/Time -->

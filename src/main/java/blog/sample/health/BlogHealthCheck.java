@@ -1,18 +1,19 @@
 package blog.sample.health;
 
 import com.codahale.metrics.health.HealthCheck;
+import org.hibernate.SessionFactory;
 
 public class BlogHealthCheck extends HealthCheck {
 
-    private final String checkStr;
+    private final SessionFactory database;
 
-    public BlogHealthCheck(String checkStr) {
-        this.checkStr = checkStr;
+    public BlogHealthCheck(SessionFactory database) {
+        this.database = database;
     }
 
     @Override
     protected Result check() throws Exception {
-        if (checkStr != null && checkStr.equalsIgnoreCase("Test")) {
+        if (database.openSession().isConnected()) {
             return Result.healthy();
         }
 

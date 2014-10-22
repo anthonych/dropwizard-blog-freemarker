@@ -36,20 +36,28 @@
             <!-- Form Name -->
             <legend>Blog Post</legend>
 
-            <!-- Text input-->
+            <!-- Headline -->
             <div class="form-group">
                 <label for="headline">Headline</label>
                 <input type="text" class="form-control" id="headline" name="headline"
-                       placeholder="blog post headline here">
+                       placeholder="Headline here">
             </div>
 
-            <!-- Textarea -->
+            <!-- Blog post -->
             <div class="form-group">
                 <label for="body">Post</label>
                 <textarea class="form-control" id="body" name="body" rows="10"
-                          placeholder="blog post content here"></textarea>
+                          placeholder="Blog post content here"></textarea>
             </div>
 
+            <!-- Author -->
+            <div class="form-group">
+                <label for="headline">Author</label>
+                <input type="text" class="form-control" id="author" name="author"
+                       placeholder="Author name here">
+            </div>
+
+            <!-- Save -->
             <button id="save" name="save" class="btn btn-info" type="button">Save</button>
         </form>
         <hr>

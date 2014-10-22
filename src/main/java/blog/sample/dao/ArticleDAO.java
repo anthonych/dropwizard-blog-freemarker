@@ -18,7 +18,6 @@ public class ArticleDAO extends AbstractDAO<Article> {
 
     public List<Article> findAll() {
 
-        //return currentSession().createQuery("from Article").list();
         return list(namedQuery("Article.findAll"));
     }
 

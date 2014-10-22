@@ -1,13 +1,16 @@
 <#-- @ftlvariable name="" type="blog.sample.view.ArticleListView" -->
 <#import "layout.ftl" as layout>
+<#assign headerContent>
+<<p>Test Header</p>
+</#assign>
+<@layout.mainLayout header="headerContent">
 
-<@layout.mainLayout>
 <!-- Page Content -->
 <div class="row">
     <div class="col-md-8">
         <h1 class="page-header">
-            Page Heading
-            <small>Secondary Text</small>
+            Articles
+            <small></small>
         </h1>
 
         <#list articles as article>
@@ -16,7 +19,7 @@
             </h2>
 
             <p class="lead">
-                by <a href="">${article.author.name}</a>
+                by <a href="">${article.author}</a>
             </p>
 
             <p><span class="glyphicon glyphicon-time"></span> Posted on ${article.postDate}</p>
