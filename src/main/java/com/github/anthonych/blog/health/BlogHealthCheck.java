@@ -1,4 +1,4 @@
-package blog.sample.health;
+package com.github.anthonych.blog.health;
 
 import com.codahale.metrics.health.HealthCheck;
 import org.hibernate.SessionFactory;

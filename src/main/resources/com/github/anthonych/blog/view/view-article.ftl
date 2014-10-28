@@ -1,4 +1,4 @@
-<#-- @ftlvariable name="" type="blog.sample.view.ArticleView" -->
+<#-- @ftlvariable name="" type="com.github.anthonych.blog.view.ArticleView" -->
 <#import "layout.ftl" as layout>
 <@layout.mainLayout>
 

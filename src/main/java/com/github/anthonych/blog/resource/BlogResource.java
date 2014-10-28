@@ -1,7 +1,7 @@
-package blog.sample.resource;
+package com.github.anthonych.blog.resource;
 
-import blog.sample.dao.ArticleDAO;
-import blog.sample.view.ArticleListView;
+import com.github.anthonych.blog.dao.ArticleDAO;
+import com.github.anthonych.blog.view.ArticleListView;
 import com.codahale.metrics.annotation.Timed;
 import io.dropwizard.hibernate.UnitOfWork;
 

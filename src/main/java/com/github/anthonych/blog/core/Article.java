@@ -1,4 +1,4 @@
-package blog.sample.core;
+package com.github.anthonych.blog.core;
 
 import org.hibernate.annotations.GenericGenerator;
 

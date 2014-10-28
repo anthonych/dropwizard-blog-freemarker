@@ -1,7 +1,7 @@
-package blog.sample.resource;
+package com.github.anthonych.blog.resource;
 
-import blog.sample.core.Article;
-import blog.sample.dao.ArticleDAO;
+import com.github.anthonych.blog.core.Article;
+import com.github.anthonych.blog.dao.ArticleDAO;
 import io.dropwizard.testing.junit.ResourceTestRule;
 import org.junit.Before;
 import org.junit.Rule;

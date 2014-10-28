@@ -1,6 +1,6 @@
-package blog.sample.dao;
+package com.github.anthonych.blog.dao;
 
-import blog.sample.core.Article;
+import com.github.anthonych.blog.core.Article;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

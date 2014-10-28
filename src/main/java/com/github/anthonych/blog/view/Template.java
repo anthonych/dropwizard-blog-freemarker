@@ -1,4 +1,4 @@
-package blog.sample.view;
+package com.github.anthonych.blog.view;
 
 /**
  * Created by anthonychen on 9/14/14.

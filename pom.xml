@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>dropwizard.sample</groupId>
-    <artifactId>blog.freemarker</artifactId>
+    <groupId>com.github.anthonych</groupId>
+    <artifactId>dropwizard-blog-freemarker</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
@@ -86,7 +86,7 @@
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
-                                        <mainClass>blog.sample.BlogApplication</mainClass>
+                                        <mainClass>com.github.anthonych.blog.BlogApplication</mainClass>
                                         <X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
                                         <X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
                                     </manifestEntries>
@@ -102,7 +102,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.2.1</version>
                 <configuration>
-                    <mainClass>blog.sample.BlogApplication</mainClass>
+                    <mainClass>com.github.anthonych.blog.BlogApplication</mainClass>
                     <arguments>
                         <argument>server</argument>
                         <argument>blog.yaml</argument>

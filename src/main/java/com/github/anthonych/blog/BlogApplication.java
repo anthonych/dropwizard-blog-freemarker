@@ -1,11 +1,11 @@
-package blog.sample;
+package com.github.anthonych.blog;
 
-import blog.sample.conf.BlogConfiguration;
-import blog.sample.core.Article;
-import blog.sample.dao.ArticleDAO;
-import blog.sample.health.BlogHealthCheck;
-import blog.sample.resource.ArticleResource;
-import blog.sample.resource.BlogResource;
+import com.github.anthonych.blog.conf.BlogConfiguration;
+import com.github.anthonych.blog.core.Article;
+import com.github.anthonych.blog.dao.ArticleDAO;
+import com.github.anthonych.blog.health.BlogHealthCheck;
+import com.github.anthonych.blog.resource.ArticleResource;
+import com.github.anthonych.blog.resource.BlogResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.db.DataSourceFactory;

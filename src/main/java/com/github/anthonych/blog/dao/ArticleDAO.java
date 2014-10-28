@@ -1,6 +1,6 @@
-package blog.sample.dao;
+package com.github.anthonych.blog.dao;
 
-import blog.sample.core.Article;
+import com.github.anthonych.blog.core.Article;
 import io.dropwizard.hibernate.AbstractDAO;
 import org.hibernate.SessionFactory;
 

@@ -1,6 +1,6 @@
-package blog.sample.view;
+package com.github.anthonych.blog.view;
 
-import blog.sample.core.Article;
+import com.github.anthonych.blog.core.Article;
 import io.dropwizard.views.View;
 
 /**
