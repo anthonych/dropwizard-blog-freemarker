@@ -32,7 +32,19 @@
     <![endif]-->
 </head>
 <body>
+<script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function () {
+        var url = window.location;
+        $('ul.nav a[href="' + url + '"]').parent().addClass('active');
 
+        $('ul.nav a').filter(function () {
+            return this.href == url;
+        }).parent().addClass('active');
+    });
+    //]]>
+</script>
+<!-- Menu -->
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -46,15 +58,18 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/blog">Home</a></li>
-                <li><a href="/blog/article/view/all">Articles</a></li>
+                <li>
+                    <a href="/blog/">Home</a>
+                </li>
+                <li>
+                    <a href="/blog/article/view/all">Articles</a>
+                </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin</a>
                     <ul class="dropdown-menu">
-                        <li><a href="/blog/article/new">New Article</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Settings</a></li>
+                        <li>
+                            <a href="/blog/article/new">New Article</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -64,10 +79,20 @@
         </div>
     </div>
 </div>
-${header}
+<!-- Articles -->
 <div id="container" class="container">
     <#nested/>
+    <!-- footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Blog Website 2014</p>
+            </div>
+        </div>
+    </footer>
 </div>
+
+
 </body>
 </html>
 </#macro>
