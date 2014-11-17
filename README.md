@@ -14,8 +14,12 @@ Dropwizard 是近期崛起的一個輕量級的微服務 (Microservice) 框架�
 
  1. 從專案根目錄以 command line 執下列 maven 命令:
 
+ ```
     mvn exec;java
+ ```
 
  2. 以瀏覽器開啟下列網址 (可將 localhost 換成自己的機器 IP 或網域名稱)：
 
+ ```
     http://localhost:8080/blog
+ ```
