@@ -9,7 +9,7 @@ import java.sql.Timestamp;
  * Created by anthonychen on 9/9/14.
  */
 @Entity
-@Table(name = "article", schema = "", catalog = "blog")
+@Table(name = "ARTICLE", schema = "PUBLIC", catalog = "PUBLIC")
 @NamedQuery(name = "Article.findAll", query = "from Article")
 public class Article {
     private String id;

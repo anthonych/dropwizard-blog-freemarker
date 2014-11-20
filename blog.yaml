@@ -7,15 +7,17 @@ server:
     type: http
     port: 8080
 database:
-  driverClass: com.mysql.jdbc.Driver
-  user: anthonychen
-  password: anthonychen
-  url: jdbc:mysql://localhost:3306/blog?zeroDateTimeBehavior=convertToNull
+  driverClass: org.hsqldb.jdbc.JDBCDriver
+  user: blog
+  password: blog
+  url: jdbc:hsqldb:database/blog
   properties:
     charSet: UTF-8
-    hibernate.dialect: org.hibernate.dialect.MySQLDialect
+    hibernate.dialect: org.hibernate.dialect.HSQLDialect
+    hibernate.default_schema: PUBLIC
   maxWaitForConnection: 1s
-  validationQuery: "SELECT 1"
+  validationQuery: "SELECT 1 FROM INFORMATION_SCHEMA.SYSTEM_USERS"
+
   minSize: 8
   maxSize: 32
   checkConnectionWhileIdle: false
